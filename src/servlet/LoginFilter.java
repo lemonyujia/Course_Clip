@@ -29,8 +29,9 @@ public class LoginFilter implements Filter {
         HttpSession session = request.getSession(false);
         String loginURI = request.getContextPath() + "/login.jsp";
         String loginURI2 = request.getContextPath() + "/login.do";
+        String loginURI3 = request.getContextPath() + "/register.jsp";
         boolean loggedIn = session != null && session.getAttribute("username") != null;
-        boolean loginRequest = request.getRequestURI().equals(loginURI) ||request.getRequestURI().equals(loginURI2) ;
+        boolean loginRequest = request.getRequestURI().equals(loginURI) ||request.getRequestURI().equals(loginURI2) || request.getRequestURI().equals(loginURI3) ;
 
         if (loggedIn || loginRequest) {
             chain.doFilter(request, response);
